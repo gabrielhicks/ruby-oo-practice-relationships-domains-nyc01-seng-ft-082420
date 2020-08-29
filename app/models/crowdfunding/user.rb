@@ -15,7 +15,7 @@ class User
 
     end
 
-    self.project_creator
+    def self.project_creator
         # returns all users who have created a project
 
     end
