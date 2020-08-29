@@ -14,9 +14,9 @@ class Guest
         @@all
     end
 
-    def listings #BROKEN NoMethodError: undefined method `guests' for Listing:Class guest.rb:19:in `listings'
+    def listings
         # returns an array of all listings a guest has stayed at
-        Listing.guests.map { |guest| guest == self }
+        Trip.all.select { |trip| trip.guest == self }.map { |trip| trip.listing }
     end
 
     def trips
@@ -31,7 +31,7 @@ class Guest
 
     def self.pro_traveller #NoMethodError: undefined method `count' for #<Gue
         # returns an array of all guests who have made over 1 trip
-        Trip.all.filter { |trip| trip.guest.count > 1}
+        self.all.filter { |guest| guest.trip_count > 1 }
     end
 
     def self.find_all_by_name(name)

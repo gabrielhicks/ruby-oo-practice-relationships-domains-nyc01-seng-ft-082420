@@ -13,9 +13,9 @@ class Listing
         @@all
     end
 
-    def guests # NoMethodError: undefined method `listings' for Guest:Class
+    def guests #WORKING
         # returns an array of all guests who have stayed at a listing
-        Trip.all.select { |trip| trip.guest }
+        Trip.all.select { |trip| trip.listing == self }.map {|trip| trip.guest}
     end
 
     def trips #WORKING
@@ -33,9 +33,10 @@ class Listing
         self.all.select { |listing| listing.city == city }
     end
 
-    def self.most_popular #NoMethodError: undefined method `size' for #<Trip:0x00007fcde3168358>
+    def self.most_popular #WORKING
         # finds the listing that has had the most trips
-        Trip.all.find { |trip1, trip2| trip1.size <=> trip2.size }
+        max_amount = self.all.map {|listing| listing.trip_count}.max
+        self.all.find_all {|listing| listing.trip_count == max_amount}
     end
     
 end
