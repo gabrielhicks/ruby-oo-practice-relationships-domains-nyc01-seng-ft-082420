@@ -1,9 +1,10 @@
 class Bakery
-    attr
+    attr_accessor :name
 
     @@all = []
     
-    def initialize
+    def initialize(name)
+        @name = name
         @@all << self
     end
 
@@ -14,22 +15,22 @@ class Bakery
 
     def ingredients
         # should return an array of ingredients for the bakery's desserts
-
+        DessertIngredient.all.select {|di| di.dessert.bakery = self}.map {|dessert| dessert.ingredient}.uniq
     end
 
     def desserts
         # should return an array of desserts the bakery makes
-
-    end
-
-    def average_calories
-        # should return a number totaling the average number of calories for the desserts sold at this bakery
-
+        DessertIngredient.all.select {|di| di.dessert.bakery = self}.map {|dessert| dessert.dessert}.uniq
     end
 
     def shopping_list
         # should return a string of names for ingredients for the bakery
-
+        ingredients = DessertIngredient.all.select {|dessert| dessert.dessert.bakery = self}.map {|dessert| dessert.ingredient.name}
+        listed = ""
+        ingredients.each { |ingredient, amount|
+                listed += "#{ingredient}, "
+        }
+        listed.chop!.chop!
     end
 
 end
