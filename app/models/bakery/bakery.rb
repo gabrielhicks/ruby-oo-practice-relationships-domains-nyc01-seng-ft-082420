@@ -25,7 +25,7 @@ class Bakery
 
     def shopping_list
         # should return a string of names for ingredients for the bakery
-        ingredients = DessertIngredient.all.select {|dessert| dessert.dessert.bakery = self}.map {|dessert| dessert.ingredient.name}
+        ingredients = DessertIngredient.all.select {|dessert| dessert.dessert.bakery == self}.map {|dessert| dessert.ingredient.name}
         listed = ""
         ingredients.each { |ingredient, amount|
                 listed += "#{ingredient}, "
