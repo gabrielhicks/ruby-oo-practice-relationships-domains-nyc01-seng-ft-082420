@@ -33,8 +33,11 @@ end
 # corn_pool2 = Trip.new(dm, jim)
 
 jakes = Bakery.new("Jakes Bake")
+#sugar, choc, chips
 jess = Bakery.new("Jess' Mess")
+#sugar, chocolate, flower
 gabes = Bakery.new("Gabes Goblet")
+#sugar
 
 pudding = Dessert.new("pudding", jakes)
 cake = Dessert.new("cake", jess)
