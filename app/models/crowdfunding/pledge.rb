@@ -1,18 +1,17 @@
 class Pledge
-    attr
+    attr_accessor :user, :project, :amount
 
-    def initialize(amount, goal)
+    @@all = []
 
+    def initialize(user, project, amount)
+        @user = user
+        @project = project
+        @amount = amount
+        @@all << self
     end
 
-    def project
-        # returns the project associated with a particular pledge
-        
-    end
-
-    def user
-        # returns the user associated with a particular pledge
-
+    def self.all
+        @@all
     end
 
 end
