@@ -1,8 +1,9 @@
 class Project
     attr
 
-    def initialize
-
+    def initialize(name, total)
+        @name = name
+        @total = total  
     end
 
     def self.no_pledges

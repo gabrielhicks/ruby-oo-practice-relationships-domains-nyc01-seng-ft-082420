@@ -1,13 +1,13 @@
 class Pledge
     attr
 
-    def initialize
+    def initialize(amount, goal)
 
     end
 
     def project
         # returns the project associated with a particular pledge
-
+        
     end
 
     def user

@@ -1,13 +1,21 @@
 class Client
-    attr
+    attr_accessor :name, :trainer
 
-    def initialize
+    @@all = []
 
+    def initialize(name, trainer=nil)
+        @name = name
+        @trainer = trainer
+        @@all << self
     end
 
-    def assign_trainer(trainer)
-        # should take a trainer as argument and assign it to the client
+    def self.all
+        @@all
+    end
 
+    def assign_trainer(trainer) #WORKING
+        # should take a trainer as argument and assign it to the client
+        self.trainer = trainer
     end
     
 end

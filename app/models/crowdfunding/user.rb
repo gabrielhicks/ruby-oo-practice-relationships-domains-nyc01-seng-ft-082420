@@ -1,7 +1,15 @@
 class User
     attr
 
-    def initialize
+    def initialize(name)
+        @name = name
+    end
+
+    def create_project(name)
+
+    end
+
+    def back_project(amount)
 
     end
 
